@@ -24,7 +24,7 @@ export function Storefront() {
   useEffect(() => {
     setLines([]);
     setCat(store.categories[0]?.id);
-    document.title = `${store.name} · pedidos online`;
+    document.title = `${store.name} · ${store.mode === "interesse" ? "estoque online" : store.theme.style === "editorial" ? "loja online" : "pedidos online"}`;
   }, [store.key]); // eslint-disable-line
 
   const visibleCats = store.categories.filter((c) => store.products.some((p) => p.cat === c.id));
